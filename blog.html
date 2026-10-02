@@ -11,7 +11,7 @@
 <link rel="canonical" href="https://4cceleration.github.io/blog"><style>
 html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:block}h1{font-size:2em;margin:.67em 0}hr{box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:bolder}code,kbd,samp{font-family:monospace,monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}button,[type=button],[type=reset],[type=submit]{-webkit-appearance:button}button::-moz-focus-inner,[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner{border-style:none;padding:0}button:-moz-focusring,[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring{outline:1px dotted ButtonText}
 fieldset{padding:.35em .75em .625em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{vertical-align:baseline}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details{display:block}summary{display:list-item}template{display:none}[hidden]{display:none}img{max-width:100%;height:auto}
-</style><script src="https://cdn.tailwindcss.com"></script>
+</style><script src="https://media.stronglify.com/tailwind-play-3.4.17.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;650;800&amp;family=Unbounded:wght@500;650;750&amp;display=swap" rel="stylesheet">
@@ -24,7 +24,113 @@ fieldset{padding:.35em .75em .625em}legend{box-sizing:border-box;color:inherit;d
 <style id="hero-fix">.hero{display:flex;flex-direction:column;align-items:center;gap:clamp(40px,5vw,64px);min-height:0;padding:clamp(64px,8vw,112px) 0 clamp(56px,7vw,96px)}.hero-grid{order:1;display:block;width:min(1500px,100%)}.hero-copy{display:flex;flex-direction:column;align-items:center;text-align:center;max-width:920px;margin-inline:auto}.hero h1{font-size:clamp(2.6rem,6vw,6rem);line-height:1;letter-spacing:-.02em;max-width:14ch;margin-inline:auto;text-wrap:balance}.hero-copy p{max-width:46ch;margin:28px auto 0}.hero-photo{order:2;align-self:center;width:min(1100px,calc(100% - 2*clamp(18px,3.5vw,58px)));margin:0}.hero-photo img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:12px}@media(max-width:780px){.hero h1{font-size:clamp(2.2rem,10vw,3.4rem)}.hero-photo{margin-top:0}}</style>
 <style id="mobile-header-fix">@media(max-width:860px){:is(header,header>div):has(>.menu-toggle){display:flex!important;flex-wrap:nowrap!important;align-items:center!important;justify-content:space-between!important;gap:16px!important;height:auto!important;min-height:72px;padding-block:12px}:is(header,header>div):has(>.menu-toggle)>:not(.brand):not(.nav):not(.menu-toggle){display:none!important}:is(header,header>div):has(>.menu-toggle) .brand{min-width:0;flex:1 1 auto;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;font-size:clamp(1.35rem,6.5vw,1.9rem)!important;line-height:1.1;margin:0!important;transform:none!important}:is(header,header>div):has(>.menu-toggle) .menu-toggle{flex:0 0 auto;margin:0!important;min-width:0;padding:10px 18px}}</style></head>
 <body data-theme="marea" class="antialiased overflow-x-hidden">
-  <header><div class="head wrap"><a class="brand" href="./">Andén</a><nav class="nav" id="primary-navigation" aria-label="Principal">
+  <style id="anden-refresh">
+:root {
+  --cobalto: #ff9d00;
+  --boya: #ff9d00;
+  --sal: #fff;
+  --linea: #f5dfba;
+  --glass: rgb(255 255 255 / .72);
+  --glass-border: rgb(255 157 0 / .16);
+  --radius: .5rem;
+}
+
+body { background: #fff; }
+header:has(>.head) {
+  position: relative;
+  z-index: 20;
+  background: rgb(255 255 255 / .82);
+  color: var(--noche);
+  border-bottom: 1px solid var(--glass-border);
+  backdrop-filter: blur(22px) saturate(1.3);
+  -webkit-backdrop-filter: blur(22px) saturate(1.3);
+}
+.brand, .help { color: var(--noche); }
+.help { border-bottom: 2px solid var(--cobalto); }
+.hero {
+  min-height: 0;
+  gap: 20px;
+  padding: clamp(30px, 4vw, 48px) 0 clamp(36px, 4vw, 50px);
+  background: radial-gradient(circle at 50% 20%, rgb(255 157 0 / .13), transparent 48%), #fff;
+  color: var(--noche);
+}
+.hero-copy { max-width: 850px; }
+.hero h1 {
+  max-width: 15ch;
+  color: var(--noche);
+  font-size: clamp(2.6rem, 4.5vw, 4.5rem);
+  line-height: .98;
+}
+.hero-copy p { margin-top: 18px; }
+.button {
+  margin-top: 10px;
+  border-radius: var(--radius);
+  background: var(--cobalto);
+  color: var(--noche);
+  box-shadow: 0 10px 25px rgb(255 157 0 / .18);
+}
+.ticket.hero-photo {
+  width: min(1040px, calc(100% - 2 * clamp(18px, 3.5vw, 58px)));
+  padding: 10px;
+  border: 1px solid rgb(255 255 255 / .9);
+  border-radius: var(--radius);
+  background: rgb(255 255 255 / .55);
+  box-shadow: 0 20px 60px rgb(64 34 18 / .16);
+  backdrop-filter: blur(30px) saturate(1.4);
+  -webkit-backdrop-filter: blur(30px) saturate(1.4);
+}
+.hero-photo img {
+  width: 100%;
+  height: clamp(260px, 30vw, 350px);
+  aspect-ratio: auto;
+  object-fit: cover;
+  object-position: center;
+  border-radius: var(--radius);
+}
+.routes, .boarding { background: #fff; }
+.board-row, .boarding-item, .boarding-item:nth-child(even), .template-card {
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  background: var(--glass);
+  box-shadow: 0 12px 32px rgb(92 47 28 / .07);
+  backdrop-filter: blur(22px) saturate(1.3);
+  -webkit-backdrop-filter: blur(22px) saturate(1.3);
+}
+.board-row:hover { background: #fff; }
+.boarding-item { width: 100%; }
+.boarding-item:nth-child(even) { margin-left: 0; }
+.state { border-radius: var(--radius); background: var(--cobalto); color: var(--noche); }
+.state.pending { background: #fff4df; color: var(--noche); }
+.map-section {
+  background: radial-gradient(circle at 80% 30%, rgb(255 157 0 / .10), transparent 40%), #fff;
+}
+.map-placeholder, .community figure {
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  background: var(--glass);
+  box-shadow: 0 15px 40px rgb(92 47 28 / .09);
+  backdrop-filter: blur(22px) saturate(1.3);
+  -webkit-backdrop-filter: blur(22px) saturate(1.3);
+}
+.map-placeholder figcaption, .community figcaption { background: rgb(255 255 255 / .8); }
+.community { background: #fff; color: var(--noche); }
+.community figure { color: var(--noche); }
+.site-footer {
+  border-top: 1px solid var(--glass-border);
+  background: #fff;
+  color: var(--noche);
+}
+.site-footer .wrap:before { color: var(--noche); }
+.template-card { padding: 16px; }
+.template-card img, .template-prose img { border-radius: var(--radius); }
+.menu-toggle { border-radius: var(--radius) !important; background: var(--cobalto); color: var(--noche); }
+@media (max-width: 780px) {
+  .hero { gap: 22px; padding-block: 34px 48px; }
+  .hero h1 { font-size: clamp(2.25rem, 10vw, 3.5rem); }
+  .hero-photo img { height: clamp(240px, 58vw, 360px); }
+}
+</style>
+<header><div class="head wrap"><a class="brand" href="./">Andén</a><nav class="nav" id="primary-navigation" aria-label="Principal">
   
     <a href="./">Inicio</a>
   
