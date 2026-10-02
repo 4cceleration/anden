@@ -116,7 +116,7 @@ header:has(>.head) {
   border-radius: 0;
 }
 .routes, .boarding { background: #fff; }
-.board-row, .boarding-item, .boarding-item:nth-child(even), .template-card {
+.template-card {
   border: 1px solid var(--glass-border);
   border-radius: var(--radius);
   background: var(--glass);
@@ -124,64 +124,79 @@ header:has(>.head) {
   backdrop-filter: blur(22px) saturate(1.3);
   -webkit-backdrop-filter: blur(22px) saturate(1.3);
 }
-.board-row:hover { background: #fff; }
-.board { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.board {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  background: var(--glass);
+  box-shadow: 0 12px 32px rgb(92 47 28 / .07);
+  backdrop-filter: blur(22px) saturate(1.3);
+  -webkit-backdrop-filter: blur(22px) saturate(1.3);
+}
 .board-row {
-  position: relative;
   display: grid;
   grid-template-columns: 1fr auto;
-  grid-template-rows: auto 1fr auto;
+  grid-template-rows: auto 1fr;
   align-items: start;
-  min-height: 235px;
-  gap: 20px 12px;
-  padding: 28px;
-  background: linear-gradient(145deg, rgb(255 157 0 / .08), rgb(255 255 255 / .82) 55%);
+  min-height: 145px;
+  gap: 22px 12px;
+  padding: 26px;
+  border: 0;
+  border-right: 1px solid var(--glass-border);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
 }
-.board-row::before {
-  content: "";
-  position: absolute;
-  inset: 0 auto 0 0;
-  width: 4px;
-  background: var(--cobalto);
-}
+.board-row:last-child { border-right: 0; }
 .board-row strong {
-  grid-column: 1;
+  grid-column: 1 / -1;
   grid-row: 1;
   font-family: Unbounded, sans-serif;
-  font-size: clamp(1.1rem, 1.8vw, 1.45rem);
+  font-size: clamp(1.05rem, 1.6vw, 1.3rem);
   line-height: 1.15;
 }
-.board-row span:first-of-type { grid-column: 1 / -1; grid-row: 2; font-size: .95rem; }
-.board-row span:nth-of-type(2) { grid-column: 1 / -1; grid-row: 3; font-weight: 700; }
-.board-row .state { grid-column: 2; grid-row: 1; white-space: nowrap; }
-.boarding-list { counter-reset: paso; }
+.board-row span:first-of-type { display: none; }
+.board-row span:nth-of-type(2) { grid-column: 1; grid-row: 2; align-self: end; font-weight: 650; }
+.board-row .state { grid-column: 2; grid-row: 2; align-self: end; white-space: nowrap; }
+.boarding-list { gap: 0; border-top: 1px solid var(--glass-border); }
 .boarding-item, .boarding-item:nth-child(even) {
   display: flex;
   align-items: center;
-  gap: 22px;
-  min-height: 108px;
-  padding: 22px 26px;
-  counter-increment: paso;
+  min-height: 78px;
+  padding: 18px 0;
+  border: 0;
+  border-bottom: 1px solid var(--glass-border);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
-.boarding-item::before {
-  content: counter(paso, decimal-leading-zero);
-  display: grid;
-  place-items: center;
-  flex: 0 0 52px;
-  width: 52px;
-  height: 52px;
-  border-radius: var(--radius);
-  background: var(--cobalto);
-  color: var(--noche);
-  font-family: Unbounded, sans-serif;
-  font-weight: 750;
-}
-.boarding-item strong { font-size: clamp(1rem, 1.7vw, 1.3rem); }
+.boarding-item::before { content: none; }
+.boarding-item strong { font-size: clamp(1rem, 1.5vw, 1.2rem); }
 .boarding-item p { display: none; }
 .boarding-item { width: 100%; }
 .boarding-item:nth-child(even) { margin-left: 0; }
-.state { border-radius: var(--radius); background: var(--cobalto); color: var(--noche); }
-.state.pending { background: #fff4df; color: var(--noche); }
+.state, .state.pending {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--noche);
+  font-size: .85rem;
+}
+.state::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--cobalto);
+}
+.state.pending::before { background: #6b6b6b; }
 .map-section {
   background: radial-gradient(circle at 80% 30%, rgb(255 157 0 / .10), transparent 40%), #fff;
 }
@@ -212,7 +227,8 @@ header:has(>.head) {
   .hero h1 { font-size: clamp(2.25rem, 10vw, 3.5rem); }
   .hero-photo img { height: 100%; object-position: 60% center; }
   .board { grid-template-columns: 1fr; }
-  .board-row { min-height: 190px; }
+  .board-row { min-height: 125px; border-right: 0; border-bottom: 1px solid var(--glass-border); }
+  .board-row:last-child { border-bottom: 0; }
 }
 </style>
 <header><div class="head wrap"><a class="brand" href="./">Andén</a><nav class="nav" id="primary-navigation" aria-label="Principal">
